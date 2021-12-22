@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".app.home.HomeActivity">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <com.airbnb.lottie.LottieAnimationView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:lottie_autoPlay="true"
+            android:scaleY="1.5"
+            android:scaleX="1.5"
+            app:lottie_fileName="night.json"
+            app:lottie_loop="true" />
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <include
+                android:id="@+id/appbar"
+                layout="@layout/toolbar_base"/>
+            <androidx.cardview.widget.CardView
+                app:cardElevation="@dimen/dimen_0dp"
+                app:cardCornerRadius="@dimen/dimen_24dp"
+                android:layout_marginBottom="-24dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:background="@drawable/bg_white"
+                    android:layout_marginBottom="@dimen/dimen_24dp"
+                    android:layout_width="match_parent"
+                    android:orientation="vertical"
+                    android:layout_height="match_parent">
+                    <LinearLayout
+                        android:layout_margin="@dimen/margin_default"
+                        android:padding="@dimen/dimen_4dp"
+                        android:background="@drawable/bg_rounded"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                        <com.google.android.material.tabs.TabLayout
+                            app:tabTextColor="@color/white"
+                            android:id="@+id/tablayout"
+                            android:layout_width="match_parent"
+                            android:layout_height="38dp"
+                            android:backgroundTint="@null"
+                            android:background="@color/transparent"
+                            app:tabIndicatorGravity="stretch"
+                            app:tabIndicatorColor="@color/colorPrimary"
+                            app:tabIndicator="@drawable/indicator_bg" >
+                        </com.google.android.material.tabs.TabLayout>
+                    </LinearLayout>
+                    <androidx.viewpager.widget.ViewPager
+                        android:id="@+id/viewpager"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"/>
+                </androidx.appcompat.widget.LinearLayoutCompat>
+            </androidx.cardview.widget.CardView>
+        </androidx.appcompat.widget.LinearLayoutCompat>
+    </RelativeLayout>
+</layout>

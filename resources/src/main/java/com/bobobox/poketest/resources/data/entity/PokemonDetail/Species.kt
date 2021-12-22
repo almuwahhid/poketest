@@ -1,0 +1,11 @@
+package com.bobobox.poketest.resources.data.entity.PokemonDetail
+
+
+import com.google.gson.annotations.SerializedName
+
+data class Species(
+    @SerializedName("name")
+    val name: String? = null,
+    @SerializedName("url")
+    val url: String? = null
+)

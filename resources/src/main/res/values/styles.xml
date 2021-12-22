@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="AppTheme.AppBarCustom" parent="ThemeOverlay.AppCompat.Dark.ActionBar">
+        <item name="android:background">@color/transparent</item>
+        <item name="homeAsUpIndicator">@drawable/ic_back</item>
+    </style>
+    <style name="ToolBarThemeMain" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <item name="android:windowActionBar">false</item>
+        <item name="android:windowNoTitle">true</item>
+    </style>
+    <style name="clickable" parent="android:Widget.TextView">
+        <item name="android:foreground">?android:attr/selectableItemBackground</item>
+        <item name="android:clickable">true</item>
+    </style>
+    <style name="TextView.Regular" parent="android:Widget.TextView">
+        <item name="android:color">@color/colorText</item>
+    </style>
+    <style name="TextView.Bold" parent="android:Widget.TextView">
+        <item name="android:textColor">@color/colorText</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="Text.Big" parent="TextView.Regular">
+        <item name="android:textSize">16sp</item>
+    </style>
+
+    <style name="Text.Big.OneRow" parent="Text.Normal">
+        <item name="android:maxLines">1</item>
+        <item name="android:ellipsize">end</item>
+    </style>
+
+    <style name="Text.Big.Bold" parent="TextView.Bold">
+        <item name="android:textSize">17sp</item>
+    </style>
+
+    <style name="Text.Normal" parent="TextView.Regular">
+        <item name="android:textSize">13sp</item>
+    </style>
+
+    <style name="Text.Normal.OneRow" parent="Text.Normal">
+        <item name="android:maxLines">1</item>
+        <item name="android:ellipsize">end</item>
+    </style>
+
+    <style name="Text.Normal.Bold" parent="TextView.Bold">
+        <item name="android:textSize">13sp</item>
+    </style>
+
+    <style name="Text.Normal.Bold.OneRow" parent="Text.Normal.Bold">
+        <item name="android:maxLines">1</item>
+        <item name="android:ellipsize">end</item>
+    </style>
+
+    <style name="Text.Small" parent="TextView.Regular">
+        <item name="android:textSize">10sp</item>
+    </style>
+
+    <style name="Text.Small.OneRow" parent="Text.Small">
+        <item name="android:maxLines">1</item>
+        <item name="android:ellipsize">end</item>
+    </style>
+
+    <style name="Text.Small.Bold" parent="TextView.Bold">
+        <item name="android:textSize">10sp</item>
+    </style>
+
+    <style name="Text.Small.Bold.OneRow" parent="Text.Small.Bold">
+        <item name="android:maxLines">1</item>
+        <item name="android:ellipsize">end</item>
+    </style>
+</resources>
