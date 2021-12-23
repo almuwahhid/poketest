@@ -21,8 +21,13 @@ import org.koin.androidx.viewmodel.ext.android.viewModel
 
 // TODO : BaseActivity with databinding supported
 class HomeActivity : BaseActivity<ActivityMainBinding>() {
+
+    val tab : Tab? by lazy {
+        Tab(supportFragmentManager)
+    }
+
     override fun initView(binding: ActivityMainBinding): Unit = with(binding){
-        viewpager.adapter = Tab(supportFragmentManager)
+        viewpager.adapter = tab
         viewpager.setOffscreenPageLimit(2)
         tablayout.setupWithViewPager(viewpager)
 
@@ -37,12 +42,20 @@ class HomeActivity : BaseActivity<ActivityMainBinding>() {
 
     }
 
-    private class Tab(fm: FragmentManager) : FragmentPagerAdapter(fm) {
+    class Tab(fm: FragmentManager) : FragmentPagerAdapter(fm) {
+        val pokeFragment : HomeFragment? by lazy {
+            HomeFragment.newInstance(false)
+        }
+
+        val favFragment : HomeFragment? by lazy {
+            HomeFragment.newInstance(true)
+        }
+
         override fun getItem(position: Int): Fragment {
             if(position == 0){
-                return HomeFragment.newInstance(false)
+                return pokeFragment!!
             } else {
-                return HomeFragment.newInstance(true)
+                return favFragment!!
             }
 
         }
