@@ -6,6 +6,9 @@
         <entry key="../../../../layout/custom_preview.xml" value="0.41822916666666665" />
         <entry key="app/src/main/res/drawable/bg_white.xml" value="0.2475" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/activity_pokemon_detail.xml" value="0.22" />
+        <entry key="app/src/main/res/layout/adapter_ability.xml" value="0.5" />
+        <entry key="app/src/main/res/layout/adapter_moves.xml" value="0.5" />
         <entry key="resources/src/main/res/drawable/ic_back.xml" value="0.2475" />
         <entry key="resources/src/main/res/layout/helper.xml" value="0.34057971014492755" />
         <entry key="resources/src/main/res/layout/toolbar_base.xml" value="0.34057971014492755" />

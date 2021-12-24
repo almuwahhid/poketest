@@ -1,6 +1,7 @@
 package com.bobobox.poketest.resources.data.source.remote.api
 
 import com.bobobox.poketest.resources.data.entity.Pokemon
+import com.bobobox.poketest.resources.data.entity.PokemonDetail.AbilityData
 import com.bobobox.poketest.resources.data.entity.PokemonDetail.PokemonDetail
 import com.bobobox.poketest.resources.util.network.ListResult
 import retrofit2.Response
@@ -18,5 +19,10 @@ interface PokemonAPI {
     suspend fun pokemonDetail(
         @Path("id") id: Int = 0,
     ): Response<PokemonDetail>
+
+    @GET("ability/{id}")
+    suspend fun ability(
+        @Path("id") id: Int = 0,
+    ): Response<AbilityData.Ability>
 }
 

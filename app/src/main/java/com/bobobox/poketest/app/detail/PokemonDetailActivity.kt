@@ -4,12 +4,14 @@ import android.view.LayoutInflater
 import android.view.View
 import androidx.recyclerview.widget.PagerSnapHelper
 import com.bobobox.poketest.R
+import com.bobobox.poketest.app.detail.adapter.AbilityAdapter
 import com.bobobox.poketest.app.detail.adapter.AvatarAdapter
 import com.bobobox.poketest.app.detail.adapter.MovesAdapter
 import com.bobobox.poketest.databinding.ActivityPokemonDetailBinding
 import com.bobobox.poketest.resources.GlobalConfig
 import com.bobobox.poketest.resources.data.entity.FavPokemon
 import com.bobobox.poketest.resources.data.entity.PokemonDetail.PokemonDetail
+import com.bobobox.poketest.resources.data.mapper.toAbilities
 import com.bobobox.poketest.resources.data.mapper.toListedAvatar
 import com.bobobox.poketest.resources.util.base.BaseActivity
 import com.bobobox.poketest.resources.util.ext.ToastShort
@@ -32,6 +34,9 @@ class PokemonDetailActivity : BaseActivity<ActivityPokemonDetailBinding>() {
         MovesAdapter()
     }
 
+    private val adapterAbility : AbilityAdapter? by lazy {
+        AbilityAdapter()
+    }
 
     private val adapterAvatar : AvatarAdapter? by lazy {
         AvatarAdapter()
@@ -68,6 +73,9 @@ class PokemonDetailActivity : BaseActivity<ActivityPokemonDetailBinding>() {
         }?:fun() {
             adapterAvatar?.add(true, ArrayList<String>().apply { add("https://google.com") })
         }()
+        monster.abilityData?.let {
+            adapterAbility?.addAll(it.toAbilities())
+        }
         val pagerSnapHelper = PagerSnapHelper()
         pagerSnapHelper.attachToRecyclerView(rvAvatar)
         indicator.attachToRecyclerView(rvAvatar, pagerSnapHelper)

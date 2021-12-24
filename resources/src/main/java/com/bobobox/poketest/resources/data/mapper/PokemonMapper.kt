@@ -4,6 +4,7 @@ import android.net.Uri
 import android.util.Log
 import com.bobobox.poketest.resources.data.entity.FavPokemon
 import com.bobobox.poketest.resources.data.entity.Pokemon
+import com.bobobox.poketest.resources.data.entity.PokemonDetail.AbilityData
 import com.bobobox.poketest.resources.data.entity.PokemonDetail.Sprites
 
 fun String.getPokemonOffset() : String{
@@ -25,6 +26,14 @@ fun Pokemon.toFavorite() : FavPokemon {
         name = this@toFavorite.name
         url = this@toFavorite.url
     }
+}
+
+fun List<AbilityData>.toAbilities() : List<AbilityData.Ability> {
+    val res = ArrayList<AbilityData.Ability>()
+    for(x in this) {
+        res.add(x.ability!!)
+    }
+    return res
 }
 
 fun Sprites.toListedAvatar() : MutableList<String> {

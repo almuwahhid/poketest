@@ -38,7 +38,7 @@ class AvatarAdapter : BaseAdapter<String, AdapterAvatarBinding>(){
         override fun onBind(index: Int, count: Int, item: String, callback: OnItemClick<String>?): Unit = with(binding) {
             Glide.with(root)
                 .load(item)
-                .placeholder(R.drawable.placeholder_loading)
+                .placeholder(R.drawable.ic_pokemon_placeholder  )
                 .into(imgAvatar)
         }
 

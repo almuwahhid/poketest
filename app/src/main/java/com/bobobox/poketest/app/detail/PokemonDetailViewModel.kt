@@ -49,7 +49,8 @@ class PokemonDetailViewModel(val onlineRepo : OnlinePokeRepository, val offlineR
             } else {
                 offlineRepo.removeFavoriteMonster(pokemon)
             }
+        }.also {
+            isMonsterFav(pokemon.id)
         }
-        isMonsterFav(pokemon.id)
     }
 }

@@ -23,7 +23,6 @@ abstract class BaseAdapter<T, R : ViewBinding> : RecyclerView.Adapter<RecyclerVi
 
     abstract val bindingInflater: (LayoutInflater, ViewGroup?, Boolean) -> R
 
-
     private var onItemClick: OnItemClick<T>? = null
 
     protected abstract fun itemViewHolder(
@@ -129,6 +128,10 @@ abstract class BaseAdapter<T, R : ViewBinding> : RecyclerView.Adapter<RecyclerVi
 
     operator fun get(position: Int): T {
         return data.get(position)
+    }
+
+    fun get(): MutableList<T> {
+        return data
     }
 
     interface OnItemClick<T> {
