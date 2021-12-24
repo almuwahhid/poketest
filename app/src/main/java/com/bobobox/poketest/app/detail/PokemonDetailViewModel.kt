@@ -1,5 +1,6 @@
 package com.bobobox.poketest.app.detail
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
@@ -45,12 +46,16 @@ class PokemonDetailViewModel(val onlineRepo : OnlinePokeRepository, val offlineR
     fun removeOrAdd(pokemon : FavPokemon, favorited : Boolean) {
         viewModelScope.launch {
             if(favorited) {
-                offlineRepo.addFavoriteMonster(pokemon)
+                offlineRepo.addFavoriteMonster(pokemon).also {
+                    Log.d("fav", "fav $it")
+                    isMonsterFav(pokemon.id)
+                }
             } else {
-                offlineRepo.removeFavoriteMonster(pokemon)
+                offlineRepo.removeFavoriteMonster(pokemon).also {
+                    Log.d("fav-remove", "fav $it")
+                    isMonsterFav(pokemon.id)
+                }
             }
-        }.also {
-            isMonsterFav(pokemon.id)
         }
     }
 }

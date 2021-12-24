@@ -9,11 +9,11 @@ import kotlinx.coroutines.withContext
 class OfflinePokeRepository(val favPokemon : FavPokemonDao) : IOfflinePokeRepository{
 
     override suspend fun addFavoriteMonster(pokemon: FavPokemon) = withContext(Dispatchers.IO) {
-        favPokemon.add(pokemon)
+        return@withContext favPokemon.add(pokemon)
     }
 
     override suspend fun removeFavoriteMonster(pokemon: FavPokemon) = withContext(Dispatchers.IO) {
-        favPokemon.remove(pokemon.id)
+        return@withContext favPokemon.remove(pokemon.id)
     }
 
     override suspend fun getFavoriteMonsters(): List<FavPokemon> = withContext(Dispatchers.IO) {
@@ -27,8 +27,8 @@ class OfflinePokeRepository(val favPokemon : FavPokemonDao) : IOfflinePokeReposi
 }
 
 interface IOfflinePokeRepository{
-    suspend fun addFavoriteMonster(pokemon: FavPokemon)
-    suspend fun removeFavoriteMonster(pokemon: FavPokemon)
+    suspend fun addFavoriteMonster(pokemon: FavPokemon) : Long
+    suspend fun removeFavoriteMonster(pokemon: FavPokemon) : Int
     suspend fun getFavoriteMonsters() : List<FavPokemon>
     suspend fun isMonsterFavorited(id : Int) : Boolean
 }

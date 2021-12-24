@@ -13,13 +13,13 @@ interface FavPokemonDao {
     fun get(): List<FavPokemon>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun add(pokemon: FavPokemon)
+    fun add(pokemon: FavPokemon) : Long
 
     @Query("DELETE FROM FavPokemon")
     fun removeAll()
 
     @Query("DELETE FROM FavPokemon WHERE id = :id")
-    fun remove(id : Int)
+    fun remove(id : Int) : Int
 
     @Query("SELECT EXISTS(SELECT * FROM FavPokemon WHERE id = :id)")
     fun isExist(id : Int) : Boolean
