@@ -106,6 +106,8 @@ class PokemonDetailActivity : BaseActivity<ActivityPokemonDetailBinding>() {
 
         rvMoves.adapter = adapterMoves
 
+        rvAbility.adapter = adapterAbility
+
         pokemon?.let {
             viewModel.getPokemonDetail(it.id)
             viewModel.isMonsterFav(it.id)
