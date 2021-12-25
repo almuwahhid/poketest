@@ -7,7 +7,7 @@
         android:layout_marginBottom="@dimen/dimen_2dp"
         android:layout_marginTop="@dimen/dimen_2dp"
         android:layout_marginLeft="@dimen/dimen_2dp"
-        android:layout_width="@dimen/dimen_72dp"
+        android:layout_width="@dimen/dimen_96dp"
         android:layout_height="wrap_content">
         <LinearLayout
             android:orientation="vertical"

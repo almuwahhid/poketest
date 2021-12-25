@@ -6,10 +6,13 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.bobobox.poketest.resources.data.entity.FavPokemon
 import com.bobobox.poketest.resources.data.entity.Pokemon
+import com.bobobox.poketest.resources.data.entity.PokemonDetail.AbilityData
 import com.bobobox.poketest.resources.data.entity.PokemonDetail.PokemonDetail
 import com.bobobox.poketest.resources.data.repository.OfflinePokeRepository
 import com.bobobox.poketest.resources.data.repository.OnlinePokeRepository
 import com.bobobox.poketest.resources.util.base.BaseViewModel
+import kotlinx.coroutines.flow.buffer
+import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 
 class PokemonDetailViewModel(val onlineRepo : OnlinePokeRepository, val offlineRepo : OfflinePokeRepository) : BaseViewModel() {
@@ -18,6 +21,19 @@ class PokemonDetailViewModel(val onlineRepo : OnlinePokeRepository, val offlineR
 
     val favorited: LiveData<Boolean> get() = _favorited
     private val _favorited = MutableLiveData<Boolean>()
+
+    val ability: LiveData<AbilityData.Ability> get() = _ability
+    private val _ability = MutableLiveData<AbilityData.Ability>()
+
+    fun getPokemonAbility(ids : List<Int>) {
+        viewModelScope.launch {
+            onlineRepo.getPokemonAbility(ids)
+                .buffer()
+                .collect {
+                    _ability.postValue(it)
+                }
+        }
+    }
 
     fun getPokemonDetail(id : Int) {
         viewModelScope.launch {

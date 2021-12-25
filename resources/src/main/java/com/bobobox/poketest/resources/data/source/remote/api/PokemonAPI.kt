@@ -23,6 +23,6 @@ interface PokemonAPI {
     @GET("ability/{id}")
     suspend fun ability(
         @Path("id") id: Int = 0,
-    ): Response<AbilityData.Ability>
+    ): AbilityData.Ability
 }
 

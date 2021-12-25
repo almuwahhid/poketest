@@ -12,6 +12,7 @@ import com.bobobox.poketest.resources.GlobalConfig
 import com.bobobox.poketest.resources.data.entity.FavPokemon
 import com.bobobox.poketest.resources.data.entity.PokemonDetail.PokemonDetail
 import com.bobobox.poketest.resources.data.mapper.toAbilities
+import com.bobobox.poketest.resources.data.mapper.toAbilityIds
 import com.bobobox.poketest.resources.data.mapper.toListedAvatar
 import com.bobobox.poketest.resources.util.base.BaseActivity
 import com.bobobox.poketest.resources.util.ext.ToastShort
@@ -65,6 +66,10 @@ class PokemonDetailActivity : BaseActivity<ActivityPokemonDetailBinding>() {
         monster.observe(this@PokemonDetailActivity, {
             syncData(it)
         })
+
+        ability.observe(this@PokemonDetailActivity, {
+            adapterAbility!!.updateAbility(it)
+        })
     }
 
     private fun syncData(monster: PokemonDetail) = with(binding) {
@@ -75,6 +80,7 @@ class PokemonDetailActivity : BaseActivity<ActivityPokemonDetailBinding>() {
         }()
         monster.abilityData?.let {
             adapterAbility?.addAll(it.toAbilities())
+            viewModel.getPokemonAbility(it.toAbilityIds())
         }
         val pagerSnapHelper = PagerSnapHelper()
         pagerSnapHelper.attachToRecyclerView(rvAvatar)

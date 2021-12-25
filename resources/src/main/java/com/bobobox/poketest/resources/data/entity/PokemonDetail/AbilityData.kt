@@ -12,16 +12,18 @@ data class AbilityData(
     val slot: Int? = null
 ) {
     data class Ability(
+        @SerializedName("id")
+        var id: Int? = null,
         @SerializedName("name")
         val name: String? = null,
         @SerializedName("url")
         val url: String? = null,
         @SerializedName("generation")
-        val generation: Generation? = null
+        var generation: Generation? = null
     )
 
     data class Generation(@SerializedName("name")
-                          val name: String? = null,
+                          var name: String? = null,
                           @SerializedName("url")
                           val url: String? = null)
 }

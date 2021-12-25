@@ -31,7 +31,20 @@ fun Pokemon.toFavorite() : FavPokemon {
 fun List<AbilityData>.toAbilities() : List<AbilityData.Ability> {
     val res = ArrayList<AbilityData.Ability>()
     for(x in this) {
-        res.add(x.ability!!)
+        val ability = x.ability!!.apply {
+            id = x.ability.url!!.getPokemonId()
+        }
+        res.add(ability)
+    }
+    return res
+}
+
+fun List<AbilityData>.toAbilityIds() : List<Int> {
+    val res = ArrayList<Int>()
+    for(x in this) {
+        x.ability?.url?.getPokemonId()?.let {
+            res.add(it)
+        }
     }
     return res
 }

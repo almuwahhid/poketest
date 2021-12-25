@@ -1,6 +1,7 @@
 package com.bobobox.poketest.app.detail.adapter
 
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
@@ -8,6 +9,7 @@ import com.bobobox.poketest.databinding.AdapterAbilityBinding
 import com.bobobox.poketest.resources.data.entity.PokemonDetail.AbilityData
 import com.bobobox.poketest.resources.util.base.BaseAdapter
 import com.bobobox.poketest.resources.util.base.BaseViewHolder
+import com.bobobox.poketest.resources.util.ext.toJson
 
 class AbilityAdapter : BaseAdapter<AbilityData.Ability, AdapterAbilityBinding>(){
     override val bindingInflater: (LayoutInflater, ViewGroup?, Boolean) -> AdapterAbilityBinding
@@ -49,7 +51,12 @@ class AbilityAdapter : BaseAdapter<AbilityData.Ability, AdapterAbilityBinding>()
         override fun onBindLoading() {
 
         }
+    }
 
+    fun updateAbility(ability: AbilityData.Ability) {
+        Log.d("ability", "updateAbility: ${ability.toJson()}")
+        data.get(data.indexOfFirst { it.id == ability.id }).generation = ability.generation
+        notifyDataSetChanged()
     }
 
 }
