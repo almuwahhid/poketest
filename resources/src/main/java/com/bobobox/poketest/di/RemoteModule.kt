@@ -1,4 +1,4 @@
-package com.bobobox.poketest.resources.di
+package com.bobobox.poketest.di
 
 import com.bobobox.poketest.resources.data.source.remote.APIManager
 import com.bobobox.poketest.resources.util.network.NetworkUtil

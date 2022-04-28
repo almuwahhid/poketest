@@ -1,13 +1,12 @@
 package com.bobobox.poketest
 
-import android.R
 import android.app.Application
 import android.content.Context
 import androidx.multidex.MultiDex
 import com.bobobox.poketest.app.di.viewModelModule
-import com.bobobox.poketest.resources.di.databaseModule
-import com.bobobox.poketest.resources.di.remoteModule
-import com.bobobox.poketest.resources.di.repoModule
+import com.bobobox.poketest.di.databaseModule
+import com.bobobox.poketest.di.remoteModule
+import com.bobobox.poketest.di.repoModule
 import org.koin.android.ext.koin.androidContext
 import org.koin.core.context.startKoin
 

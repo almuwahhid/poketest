@@ -1,8 +1,7 @@
-package com.bobobox.poketest.resources.di
+package com.bobobox.poketest.di
 
 import com.bobobox.poketest.resources.data.repository.OfflinePokeRepository
 import com.bobobox.poketest.resources.data.repository.OnlinePokeRepository
-import org.koin.android.ext.koin.androidContext
 import org.koin.dsl.module
 
 val repoModule = module {
