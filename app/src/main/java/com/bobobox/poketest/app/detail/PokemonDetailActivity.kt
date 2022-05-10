@@ -31,6 +31,12 @@ class PokemonDetailActivity : BaseActivity<ActivityPokemonDetailBinding>() {
         }
     }
 
+    /*private val pokemon : FavPokemon? by lazy {
+        intent.getStringExtra(GlobalConfig.KEY_INTENT)?.let {
+            it.toData()
+        }
+    }*/
+
     private val adapterMoves : MovesAdapter? by lazy {
         MovesAdapter()
     }
@@ -70,6 +76,10 @@ class PokemonDetailActivity : BaseActivity<ActivityPokemonDetailBinding>() {
         ability.observe(this@PokemonDetailActivity, {
             adapterAbility!!.updateAbility(it)
         })
+
+        /*ability.observe(this@PokemonDetailActivity, {
+            adapterAbility!!.updateAbility(it)
+        })*/
     }
 
     private fun syncData(monster: PokemonDetail) = with(binding) {
